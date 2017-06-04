@@ -71,8 +71,10 @@ class TweetTableViewController: UITableViewController {
 
         // Configure the cell...
         let tweet: Tweet = tweets[indexPath.section][indexPath.row]
-        cell.textLabel?.text = tweet.text
-        cell.detailTextLabel?.text = tweet.user.name
+        if let tweetCell = cell as? TweetTableViewCell {
+            tweetCell.tweet = tweet
+        }
+
         
         return cell
     }
